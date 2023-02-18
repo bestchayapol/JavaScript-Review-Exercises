@@ -2,19 +2,15 @@
 It is responsible for setting and clearing the fields in Billing Information */
 
 function billingFunction() {
-    var checkbox = document.getElementById("same");
-    var shipName = document.getElementById("shippingName");
-    var shipZip = document.getElementById("shippingZip");
-    var billName = document.getElementById("billingName");
-    var billZip = document.getElementById("billingZip");
+    let checkbox = document.getElementById("same");
 
-    checkbox.addEventListener("change", function() {
-        if (checkbox.checked) {
-            billName.value = shipName.value;
-            billZip.value = shipZip.value;
-        } else {
-            billName.value = "";
-            billZip.value = "";
-        }
-    });
+    if (checkbox.checked) {
+        let shipName = document.getElementById("shippingName").value;
+        let shipZip = document.getElementById("shippingZip").value;
+        document.getElementById("billingName").value = `${shipName}`;
+        document.getElementById("billingZip").value = `${shipZip}`;
+    } else {
+        document.getElementById("billingName").value = "";
+        document.getElementById("billingZip").value = "";
+    }
 }
